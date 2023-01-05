@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------------
-# Copyright (c) 2021 by Enclustra GmbH, Switzerland.
+# Copyright (c) 2022 by Enclustra GmbH, Switzerland.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this hardware, software, firmware, and associated documentation files (the
@@ -28,7 +28,7 @@ set_property BITSTREAM.CONFIG.OVERTEMPSHUTDOWN ENABLE [current_design]
 set_property BITSTREAM.CONFIG.UNUSEDPIN PULLNONE [current_design]
 # ----------------------------------------------------------------------------------
 
-# Anios_A
+# Anios A
 set_property -dict {PACKAGE_PIN B10   IOSTANDARD LVCMOS18  } [get_ports {IOA_D0_P}]
 set_property -dict {PACKAGE_PIN A10   IOSTANDARD LVCMOS18  } [get_ports {IOA_D1_N}]
 set_property -dict {PACKAGE_PIN H12   IOSTANDARD LVCMOS18  } [get_ports {IOA_D2_P}]
@@ -56,7 +56,7 @@ set_property -dict {PACKAGE_PIN E15   IOSTANDARD LVCMOS18  } [get_ports {IOA_D23
 set_property -dict {PACKAGE_PIN D10   IOSTANDARD LVCMOS18  } [get_ports {IOA_CLK1_N}]
 set_property -dict {PACKAGE_PIN E10   IOSTANDARD LVCMOS18  } [get_ports {IOA_CLK0_P}]
 
-# Anios_B
+# Anios B
 set_property -dict {PACKAGE_PIN K14   IOSTANDARD LVCMOS18  } [get_ports {IOB_D0_P}]
 set_property -dict {PACKAGE_PIN J14   IOSTANDARD LVCMOS18  } [get_ports {IOB_D1_N}]
 set_property -dict {PACKAGE_PIN K15   IOSTANDARD LVCMOS18  } [get_ports {IOB_D2_P}]
@@ -82,7 +82,7 @@ set_property -dict {PACKAGE_PIN AJ1   IOSTANDARD LVCMOS12  } [get_ports {IOB_D23
 set_property -dict {PACKAGE_PIN F10   IOSTANDARD LVCMOS18  } [get_ports {IOB_CLK1_N}]
 set_property -dict {PACKAGE_PIN G10   IOSTANDARD LVCMOS18  } [get_ports {IOB_CLK0_P}]
 
-# FMC0
+# FMC LPC Connector 0
 set_property -dict {PACKAGE_PIN AD11  IOSTANDARD LVCMOS12  } [get_ports {FMC_HA06_N}]
 set_property -dict {PACKAGE_PIN AC11  IOSTANDARD LVCMOS12  } [get_ports {FMC_HA06_P}]
 set_property -dict {PACKAGE_PIN AF13  IOSTANDARD LVCMOS12  } [get_ports {FMC_HA09_N}]
@@ -144,7 +144,7 @@ set_property -dict {PACKAGE_PIN Y10   IOSTANDARD LVCMOS18  } [get_ports {FMC_LA2
 set_property -dict {PACKAGE_PIN AD7   IOSTANDARD LVCMOS12  } [get_ports {FMC_HA00_CC_N}]
 set_property -dict {PACKAGE_PIN AC7   IOSTANDARD LVCMOS12  } [get_ports {FMC_HA00_CC_P}]
 set_property -dict {PACKAGE_PIN AC8   IOSTANDARD LVCMOS12  } [get_ports {FMC_HB00_CC_N}]
-set_property -dict {PACKAGE_PIN AB8   IOSTANDARD LVCMOS12  } [get_ports {FMC_HB00_CC_P}]
+set_property -dict {PACKAGE_PIN AD8   IOSTANDARD LVCMOS12  } [get_ports {FMC_HB00_CC_P}]
 set_property -dict {PACKAGE_PIN W6    IOSTANDARD LVCMOS18  } [get_ports {FMC_LA00_CC_N}]
 set_property -dict {PACKAGE_PIN W7    IOSTANDARD LVCMOS18  } [get_ports {FMC_LA00_CC_P}]
 set_property -dict {PACKAGE_PIN V8    IOSTANDARD LVCMOS18  } [get_ports {FMC_LA01_CC_N}]
@@ -154,22 +154,24 @@ set_property -dict {PACKAGE_PIN Y9    IOSTANDARD LVCMOS18  } [get_ports {FMC_LA1
 set_property -dict {PACKAGE_PIN V6    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK0_M2C_N}]
 set_property -dict {PACKAGE_PIN V7    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK0_M2C_P}]
 
-# I2C_PL
-set_property -dict {PACKAGE_PIN AG11  IOSTANDARD LVCMOS12  } [get_ports {I2C_SCL_PL}]
-set_property -dict {PACKAGE_PIN AF7   IOSTANDARD LVCMOS12  } [get_ports {I2C_SDA_PL}]
+# PL I2C, shared with PS I2C
+set_property DRIVE 8 [get_ports {I2C_SCL}]
+set_property DRIVE 8 [get_ports {I2C_SDA}]
+set_property -dict {PACKAGE_PIN AG11  IOSTANDARD LVCMOS12  } [get_ports {I2C_SCL}]
+set_property -dict {PACKAGE_PIN AF7   IOSTANDARD LVCMOS12  } [get_ports {I2C_SDA}]
 
 # LED
 set_property -dict {PACKAGE_PIN AG9   IOSTANDARD LVCMOS12  } [get_ports {PL_LED2_N}]
 
-# PE1_SI5338_CLK3
+# PE1 SI5338 CLK3
 set_property -dict {PACKAGE_PIN F13   IOSTANDARD DIFF_SSTL12} [get_ports {OSC_N}]
 set_property -dict {PACKAGE_PIN G13   IOSTANDARD DIFF_SSTL12} [get_ports {OSC_P}]
 
-# PL_100_MHz_Oscillator
+# PL 100 MHz Oscillator
 set_property -dict {PACKAGE_PIN AB5   IOSTANDARD DIFF_SSTL12_DCI} [get_ports {CLK100_PL_N}]
 set_property -dict {PACKAGE_PIN AB6   IOSTANDARD DIFF_SSTL12_DCI} [get_ports {CLK100_PL_P}]
 
-# PL_DDR4_Memory
+# PL DDR4 Memory
 set_property INTERNAL_VREF 0.600 [get_iobanks 64]
 set_property -dict {PACKAGE_PIN AA2   IOSTANDARD SSTL12_DCI} [get_ports {DDR4PL_BA[0]}]
 set_property -dict {PACKAGE_PIN AA1   IOSTANDARD SSTL12_DCI} [get_ports {DDR4PL_BA[1]}]
