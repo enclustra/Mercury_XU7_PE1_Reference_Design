@@ -1,3 +1,8 @@
+## 2024.2_v1.2.3
+* Adjust PS reference clock frequency to remove rounding errors
+* Remove ME-XU7-9EG-2I-D12E product model
+* Remove component declarations for components provided by the unisim library
+
 ## 2024.1_v1.1.3
 * Add CLK_USR IOBUFDS instance to top level VHDL
 * Refactor documentation
